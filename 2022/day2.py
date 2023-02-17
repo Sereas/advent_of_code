@@ -97,14 +97,14 @@ def determine_shape(game: list) -> str:
             return 'Scissors'
 
 
-with open("game_input.txt") as f:
+with open("2022/game_input.txt") as f:
     strategies = [list(map(mapping, line.split())) for line in f.read().split("\n")]
     points = [points_for_shape(strategy[1]) + points_for_result(determine_game_result(strategy)) for strategy in
               strategies]
 
     print('Sum of points: ', sum(points))
 
-with open("game_input.txt") as f:
+with open("2022/game_input.txt") as f:
     task2_strategies = [list(map(mapping_task2, line.split())) for line in f.read().split("\n")]
     task2_points = [points_for_shape(determine_shape(strategy)) + points_for_result(strategy[1]) for strategy in
                     task2_strategies]

@@ -1,6 +1,6 @@
 import math
 
-with open("input.txt") as f:
+with open("2022/input.txt") as f:
     nums = [list(map(int, (line.split()))) for line in f.read().split("\n\n")]
 
 sums = [math.fsum(elem) for elem in nums]
