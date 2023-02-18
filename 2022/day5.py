@@ -58,7 +58,6 @@ def follow_instruction(instruction: dict, stacks: list) -> list:
 
 
 crates_in_stacks_modified = initial_setup_by_stack(initial_setup_all_stacks(crates_in_stacks))
-print(crates_in_stacks_modified)
 
 for instruction in instructions:
     crates_in_stacks_modified = follow_instruction(instruction=instruction, stacks=crates_in_stacks_modified)
