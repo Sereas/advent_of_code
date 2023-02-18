@@ -29,9 +29,8 @@ def pair_full_intersection(mutual_territory: list) -> int:
 
 def pair_partial_intersection(mutual_territory: list) -> int:
     check = any(item in mutual_territory[0] for item in mutual_territory[1])
-    check_reversed = any(item in mutual_territory[1] for item in mutual_territory[0])
 
-    if check or check_reversed:
+    if check:
         return 1
     else:
         return 0
