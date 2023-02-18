@@ -11,7 +11,6 @@ def mapping(line):
 with open("day5_data.txt") as f:
     crates_in_stacks = [line.split(',') for line in f.read().split('\n')]
 
-
 with open("day5_data_instructions.txt") as f:
     instructions = [mapping(line) for line in f.read().split("\n")]
 
@@ -21,7 +20,7 @@ def initial_setup_all_stacks(crates_in_stacks_raw: list) -> list:
         i = 1
         for crate in crates[0]:
             if (i % 4) == 0:
-                crates[0] = crates[0][:i-1] + ',' + crates[0][i:]
+                crates[0] = crates[0][:i - 1] + ',' + crates[0][i:]
             i += 1
 
         crates[0] = crates[0].replace('   ', '[-]')
@@ -49,7 +48,7 @@ def follow_instruction(instruction: dict, stacks: list) -> list:
     stack_to = stacks[instruction['to'] - 1]
 
     elements_to_move = stack_from[-instruction['quantity']:]
-    elements_to_move.reverse()
+    # elements_to_move.reverse()  # uncomment for answer for part 1
 
     for crate in elements_to_move:
         stack_to.append(crate)
@@ -59,17 +58,10 @@ def follow_instruction(instruction: dict, stacks: list) -> list:
 
 
 crates_in_stacks_modified = initial_setup_by_stack(initial_setup_all_stacks(crates_in_stacks))
+print(crates_in_stacks_modified)
 
 for instruction in instructions:
     crates_in_stacks_modified = follow_instruction(instruction=instruction, stacks=crates_in_stacks_modified)
 
 for stack in crates_in_stacks_modified:
     print('After: ', stack[-1])
-
-
-
-
-
-
-
-
